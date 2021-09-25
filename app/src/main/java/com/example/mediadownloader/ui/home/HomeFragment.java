@@ -95,7 +95,30 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
+//        downloadbtn.setOnClickListener(new View.OnClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.N)
+//            @Override
+//            public void onClick(View v) {
+//                    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
+//                    {
+//                        if(ActivityCompat.checkSelfPermission(getContext(),Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED)
+//                        {
+//                             //Premission denied , request it
+//                             String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.INTERNET};
+//                             requestPermissions(permissions,PERMISSION_STORAGE_CODE);
+//                        }
+//                        else{
+//                               //Premission already granted perform download
+//                            startDownload();
+//                        }
+//
+//                    }else{
+//                          //system os is less than marshmellow perform download
+//
+//                        startDownload();
+//                    }
+//            }
+//        });
         return root;
     }
     private BroadcastReceiver downloadReceiver = new BroadcastReceiver() {

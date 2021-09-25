@@ -36,6 +36,10 @@ import java.io.OutputStream;
 
 public class HomeFragment extends Fragment {
 
+
+
+    //TODO : WHEN APPLICATION IS DOWNLOADED FOR THE FIRST TIME MAKE THE DIRECTORY
+
     private FragmentHomeBinding binding;
     private EditText urltext;
     SharedPreferences preferenceManager;
@@ -74,7 +78,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onReceive(Context arg0, Intent arg1) {
-            // TODO Auto-generated method stub
+
             DownloadManager.Query query = new DownloadManager.Query();
             query.setFilterById(preferenceManager.getLong(Download_ID, 0));
             Cursor cursor = downloadManager.query(query);
@@ -100,7 +104,7 @@ public class HomeFragment extends Fragment {
                                 "File Downloaded: " + file.toString(),
                                Toast.LENGTH_LONG).show();
                     } catch (FileNotFoundException e) {
-                        // TODO Auto-generated catch block
+
                         e.printStackTrace();
                         Toast.makeText(getContext(),
                                 e.toString(),
@@ -117,8 +121,8 @@ public class HomeFragment extends Fragment {
     public void writeFileOnInternalStorage(ParcelFileDescriptor descriptor, String filename){
          File dir = new File(getExternalStorageDirectory(),"mydir");
 
-       if(!dir.exists())
-         dir.mkdir();
+
+       if(dir.exists())
        { System.out.println("SALEM 1");
         File file = new File(dir,filename);
         try {
